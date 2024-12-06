@@ -84,12 +84,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 🌟 Acknowledgments
-This platform was developed as part of our submission for the **GreenEXE 2.0 Full-Stack Development Competition**, where we secured **1st Runner-Up**! 🏆
-
----
-
-
 Special thanks to the development team for their dedication and hard work. 🙌
 
 ---
