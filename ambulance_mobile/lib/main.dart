@@ -1,4 +1,5 @@
-import 'package:ambulance_mobile/screens/home.dart';
+import 'package:ambulance_mobile/base.dart';
+import 'package:ambulance_mobile/providers/bottom_navigation_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,14 +13,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: const [],
+      providers: [
+        ChangeNotifierProvider(create: (context) => BottomNavigationProvider()),
+      ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'RescueMed',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
           useMaterial3: true,
         ),
-        home: const HomeScreen(),
+        home: const Base(),
       ),
     );
   }
