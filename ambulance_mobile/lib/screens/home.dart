@@ -1,3 +1,4 @@
+import 'package:ambulance_mobile/base.dart';
 import 'package:ambulance_mobile/widgets/emergency_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,58 +25,12 @@ class HomeScreen extends StatelessWidget {
                 size: 30,
                 color: Color.fromARGB(255, 0, 51, 102),
               ),
-              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              onPressed: () {
+                Base.scaffoldKey.currentState?.openEndDrawer();
+              },
             ),
           ),
         ],
-      ),
-      endDrawer: Drawer(
-        backgroundColor: Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Icon(
-                    Icons.notifications_active_outlined,
-                    size: 30,
-                    color: Color.fromARGB(255, 0, 51, 102),
-                  ),
-                  Text(
-                    "Notifications",
-                    style: GoogleFonts.poppins(
-                        fontSize: 22,
-                        color: const Color.fromARGB(255, 0, 51, 102),
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.notifications_active_outlined,
-                    size: 50,
-                    color: Colors.grey[400],
-                  ),
-                  Text(
-                    "You're All Set!",
-                    style: GoogleFonts.poppins(
-                        fontSize: 22,
-                        color: Colors.grey[400],
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
-          ),
-        ),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -117,7 +72,6 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: screenSize.height * 0.025,
               ),
-              //Emergency Buttons
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Column(
@@ -126,13 +80,18 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         EmergencyButton(
-                            title: 'CARDIAC',
-                            image: 'assets/cardiac.png',
-                            onTap: () {}),
+                          title: 'CARDIAC',
+                          image: 'assets/cardiac.png',
+                          onTap: () {
+                            print("cardiact");
+                          },
+                        ),
                         EmergencyButton(
                             title: 'ACCIDENT',
                             image: 'assets/accident.png',
-                            onTap: () {}),
+                            onTap: () {
+                              print("accident");
+                            }),
                       ],
                     ),
                     SizedBox(

@@ -20,30 +20,32 @@ class EmergencyButton extends StatefulWidget {
 class _EmergencyButtonState extends State<EmergencyButton> {
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
-    return Container(
-      height: screenSize.height * 0.18,
-      width: screenSize.width * 0.38,
-      decoration: BoxDecoration(
-        color:const Color.fromARGB(255, 0, 115, 230),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            widget.image,
-          ),
-          const SizedBox(height: 10),
-          Text(
-            widget.title,
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 16,
-              fontWeight: FontWeight.w700,
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: Container(
+        height: 150,
+        width: 150,
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 0, 115, 230),
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              widget.image,
             ),
-          ),
-        ],
+            const SizedBox(height: 10),
+            Text(
+              widget.title,
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
