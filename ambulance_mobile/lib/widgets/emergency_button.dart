@@ -20,11 +20,12 @@ class EmergencyButton extends StatefulWidget {
 class _EmergencyButtonState extends State<EmergencyButton> {
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: widget.onTap,
       child: Container(
-        height: 150,
-        width: 150,
+        height: screenSize.height * 0.18,
+        width: screenSize.width * 0.38,
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 0, 115, 230),
           borderRadius: BorderRadius.circular(5),
