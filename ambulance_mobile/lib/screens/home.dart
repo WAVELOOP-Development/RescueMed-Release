@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Image.asset(
           'assets/logo(full).png',
-          height: 30,
+          height: 28,
         ),
         actions: [
           Builder(
