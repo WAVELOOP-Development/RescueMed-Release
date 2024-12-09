@@ -35,7 +35,7 @@ class _PatientHistoryCardState extends State<PatientHistoryCard> {
         ),
       ),
       child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 25, vertical: screenSize.height * 0.025),
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
         child: Column(
           children: [
             Container(
@@ -109,8 +109,8 @@ class _PatientHistoryCardState extends State<PatientHistoryCard> {
                 ),
               ),
             ),
-            SizedBox(
-              height: screenSize.height * 0.006,
+            const SizedBox(
+              height: 5,
             ),
             TextButton(
               onPressed: widget.onTap,
