@@ -69,7 +69,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       borderRadius: BorderRadius.circular(0.0),
                       borderSide: const BorderSide(
                         color: Color.fromARGB(255, 0, 51, 102),
-                        width: 3.0,
+                        width: 2.0,
                       ),
                     ),
                     contentPadding:
