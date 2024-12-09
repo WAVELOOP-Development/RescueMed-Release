@@ -42,7 +42,7 @@ class HomeScreen extends StatelessWidget {
               Text(
                 "Good Morning!",
                 style: GoogleFonts.poppins(
-                    fontSize: 30,
+                    fontSize: 32,
                     color: const Color.fromARGB(255, 0, 51, 102),
                     fontWeight: FontWeight.w500),
               ),
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
                     fontWeight: FontWeight.w500),
               ),
               SizedBox(
-                height: screenSize.height * 0.06,
+                height: screenSize.height * 0.05,
               ),
               Text(
                 "Hey, Welcome Back!",
@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
               Text(
                 "What's Going On?",
                 style: GoogleFonts.poppins(
-                    fontSize: 30,
+                    fontSize: 32,
                     color: const Color.fromARGB(255, 0, 51, 102),
                     fontWeight: FontWeight.w500),
               ),
@@ -102,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         EmergencyButton(
-                            title: 'POISON',
+                            title: 'POISONED',
                             image: 'assets/poison.png',
                             onTap: () {}),
                         EmergencyButton(
@@ -134,7 +134,7 @@ class HomeScreen extends StatelessWidget {
                         style: GoogleFonts.poppins(
                             fontSize: 16,
                             color: const Color.fromARGB(255, 0, 51, 102),
-                            fontWeight: FontWeight.w600),
+                            fontWeight: FontWeight.w700),
                       ),
                     ),
                   ],

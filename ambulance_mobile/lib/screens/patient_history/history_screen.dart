@@ -17,40 +17,51 @@ class _HistoryScreenState extends State<HistoryScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Patient History',
-                style: GoogleFonts.poppins(
-                    fontSize: 30,
-                    color: const Color.fromARGB(255, 0, 51, 102),
-                    fontWeight: FontWeight.w500),
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25, right: 25, top: 25),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Patient History',
+                      style: GoogleFonts.poppins(
+                          fontSize: 32,
+                          color: const Color.fromARGB(255, 0, 51, 102),
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      "Past patient records",
+                      style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: const Color.fromARGB(255, 0, 51, 102),
+                          fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(height: screenSize.height * 0.04),
+                  ],
+                ),
               ),
-              Text(
-                "Past patient records",
-                style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    color: const Color.fromARGB(255, 0, 51, 102),
-                    fontWeight: FontWeight.w500),
-              ),
-              SizedBox(
-                height: screenSize.height * 0.04,
-              ),
-              SizedBox(
-                width: double.infinity,
+            ),
+            SliverAppBar(
+              automaticallyImplyLeading: false,
+              pinned: true,
+              backgroundColor: Colors.white,
+              expandedHeight: 80,
+              flexibleSpace: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: TextField(
                   decoration: InputDecoration(
-                    hintText: 'Search Patient name or ID',
-                    hintStyle: GoogleFonts.poppins(
-                      color: Colors.grey[600],
-                      fontWeight: FontWeight.w500,
+                    labelText: "Patient Name or ID",
+                    labelStyle: GoogleFonts.poppins(
+                      color: Colors.grey[500],
                       fontSize: 16,
+                      fontWeight: FontWeight.w500,
                     ),
                     filled: true,
-                    fillColor: Colors.white70,
+                    fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(0.0),
                       borderSide: const BorderSide(
@@ -72,22 +83,20 @@ class _HistoryScreenState extends State<HistoryScreen> {
                         width: 2.0,
                       ),
                     ),
-                    contentPadding:
-                        const EdgeInsets.symmetric(horizontal: 16.0),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16.0, vertical: 16),
                     prefixIcon: const Icon(
                       Icons.search_sharp,
-                      color: Color.fromARGB(255, 0, 51, 102),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: screenSize.height * 0.04,
-              ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
+            ),
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(horizontal: 25),
+              sliver: SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
                     return PatientHistoryCard(
                       patientId: 'patientId',
                       patientName: 'patientName',
@@ -102,10 +111,11 @@ class _HistoryScreenState extends State<HistoryScreen> {
                       },
                     );
                   },
+                  childCount: 5,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

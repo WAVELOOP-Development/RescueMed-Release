@@ -36,6 +36,7 @@ class _BaseState extends State<Base> {
                         size: 48,
                         color: Colors.grey[400],
                       ),
+                      const SizedBox(height: 8),
                       Text(
                         "You're All Set!",
                         style: GoogleFonts.poppins(
@@ -86,7 +87,7 @@ class _BaseState extends State<Base> {
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
           child: GNav(
             backgroundColor: Colors.white,
             color: Colors.grey,

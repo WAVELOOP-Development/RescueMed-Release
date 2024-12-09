@@ -20,7 +20,6 @@ class TravelInformation extends StatefulWidget {
 class _TravelInformationState extends State<TravelInformation> {
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -31,11 +30,11 @@ class _TravelInformationState extends State<TravelInformation> {
               color: const Color.fromARGB(255, 0, 51, 102),
               fontWeight: FontWeight.w500),
         ),
-        SizedBox(
-          height: screenSize.height * 0.005,
+        const SizedBox(
+          height: 8,
         ),
         Container(
-          height: screenSize.height * 0.05,
+          height: 56,
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -71,14 +70,13 @@ class _TravelInformationState extends State<TravelInformation> {
           ),
         ),
         const SizedBox(
-          height: 5,
+          height: 8,
         ),
         Container(
-          height: screenSize.height * 0.05,
+          height: 56,
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(0),
             border: Border.all(
               color: Colors.grey.shade500,
               width: 1.5,
@@ -110,10 +108,10 @@ class _TravelInformationState extends State<TravelInformation> {
           ),
         ),
         const SizedBox(
-          height: 5,
+          height: 8,
         ),
         Container(
-          height: screenSize.height * 0.05,
+          height: 56,
           width: double.infinity,
           decoration: BoxDecoration(
             color: Colors.white,

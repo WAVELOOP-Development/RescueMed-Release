@@ -25,8 +25,16 @@ class _EmergencyButtonState extends State<EmergencyButton> {
       onTap: widget.onTap,
       child: Container(
         height: screenSize.height * 0.18,
-        width: screenSize.width * 0.38,
+        width: screenSize.width * 0.4,
         decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 0,
+              blurRadius: 2,
+              offset: const Offset(0, 3),
+            ),
+          ],
           color: const Color.fromARGB(255, 0, 115, 230),
           borderRadius: BorderRadius.circular(5),
         ),

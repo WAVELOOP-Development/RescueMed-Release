@@ -1,5 +1,5 @@
 import 'package:ambulance_mobile/providers/bottom_navigation_provider.dart';
-import 'package:ambulance_mobile/screens/auth/login_screen.dart';
+import 'package:ambulance_mobile/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

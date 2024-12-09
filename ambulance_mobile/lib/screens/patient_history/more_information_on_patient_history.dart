@@ -31,22 +31,22 @@ class _MoreInformationOnPatientHistoryState
               color: const Color.fromARGB(255, 0, 115, 230),
             ),
             Image.asset(
-              'assets/logo(full).png',
-              height: 28,
+              'assets/org-logo.png',
+              height: 150,
             ),
           ],
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+          padding: const EdgeInsets.only(left: 25, right: 25, top: 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 'More Information',
                 style: GoogleFonts.poppins(
-                    fontSize: 30,
+                    fontSize: 32,
                     color: const Color.fromARGB(255, 0, 51, 102),
                     fontWeight: FontWeight.w500),
               ),
@@ -57,8 +57,8 @@ class _MoreInformationOnPatientHistoryState
                     color: const Color.fromARGB(255, 0, 51, 102),
                     fontWeight: FontWeight.w500),
               ),
-              SizedBox(
-                height: screenSize.height * 0.03,
+              const SizedBox(
+                height: 32,
               ),
               const TextHolder(
                 title: 'Patient Name',
@@ -66,7 +66,7 @@ class _MoreInformationOnPatientHistoryState
                 width: double.infinity,
               ),
               const SizedBox(
-                height: 15,
+                height: 8,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,17 +74,17 @@ class _MoreInformationOnPatientHistoryState
                   TextHolder(
                     title: 'Age',
                     value: '22 yrs',
-                    width: screenSize.width * 0.4,
+                    width: screenSize.width * 0.42,
                   ),
                   TextHolder(
                     title: 'Gender',
                     value: 'Female',
-                    width: screenSize.width * 0.4,
+                    width: screenSize.width * 0.42,
                   ),
                 ],
               ),
               const SizedBox(
-                height: 15,
+                height: 8,
               ),
               const TextHolder(
                 title: 'Patient Category',
@@ -92,7 +92,7 @@ class _MoreInformationOnPatientHistoryState
                 width: double.infinity,
               ),
               const SizedBox(
-                height: 15,
+                height: 8,
               ),
               const TextHolder(
                 title: 'Date',
@@ -100,7 +100,7 @@ class _MoreInformationOnPatientHistoryState
                 width: double.infinity,
               ),
               const SizedBox(
-                height: 15,
+                height: 8,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -108,17 +108,17 @@ class _MoreInformationOnPatientHistoryState
                   TextHolder(
                     title: 'Pickup Time',
                     value: '10:30 AM',
-                    width: screenSize.width * 0.4,
+                    width: screenSize.width * 0.42,
                   ),
                   TextHolder(
                     title: 'Drop Time',
                     value: '11:00 AM',
-                    width: screenSize.width * 0.4,
+                    width: screenSize.width * 0.42,
                   ),
                 ],
               ),
               const SizedBox(
-                height: 15,
+                height: 8,
               ),
               const TextHolder(
                 title: 'Pickup Address',
@@ -126,7 +126,7 @@ class _MoreInformationOnPatientHistoryState
                 width: double.infinity,
               ),
               const SizedBox(
-                height: 15,
+                height: 8,
               ),
               const TextHolder(
                 title: 'Selected Hospital',
@@ -134,15 +134,15 @@ class _MoreInformationOnPatientHistoryState
                 width: double.infinity,
               ),
               const SizedBox(
-                height: 20,
+                height: 32,
               ),
               const TravelInformation(
                 time: '25 minutes',
                 distance: '5.2 km',
                 traffic: 'Heavy',
               ),
-              SizedBox(
-                height: screenSize.height * 0.05,
+              const SizedBox(
+                height: 32,
               ),
             ],
           ),
