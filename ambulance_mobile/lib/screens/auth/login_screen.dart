@@ -1,4 +1,4 @@
-import 'package:ambulance_mobile/screens/login2_screen.dart';
+import 'package:ambulance_mobile/screens/auth/login2_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
