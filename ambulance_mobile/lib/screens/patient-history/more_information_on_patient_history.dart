@@ -122,7 +122,7 @@ class _MoreInformationOnPatientHistoryState
               ),
               const TextHolder(
                 title: 'Pickup Address',
-                value: 'No. 123, Galle Road, Colombo 03',
+                value: 'No. 123, Galle Road, Colombo.',
                 width: double.infinity,
               ),
               const SizedBox(
