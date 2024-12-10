@@ -1,19 +1,19 @@
-import 'package:ambulance_mobile/screens/login/forgot_screen.dart';
-import 'package:ambulance_mobile/screens/login/login2_screen.dart';
+import 'package:ambulance_mobile/screens/login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class ForgotScreen extends StatefulWidget {
+  const ForgotScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ForgotScreen> createState() => _ForgotScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _ForgotScreenState extends State<ForgotScreen> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -22,35 +22,35 @@ class _LoginScreenState extends State<LoginScreen> {
           child: SizedBox(
             height: screenSize.height,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(
-                  "assets/login.png",
-                  height: screenSize.height * 0.4,
+                Center(
+                  child: Image.asset(
+                    "assets/Forgot.png",
+                  ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Welcome Back!",
+                      "Need help\nwith signing in?",
+                      textAlign: TextAlign.start,
                       style: GoogleFonts.poppins(
-                        fontSize: 32,
-                        color: const Color.fromARGB(255, 0, 51, 102),
+                        fontSize: screenSize.width * 0.06,
                         fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    Text(
-                      "Let's get you ready for the next emergency.",
-                      style: GoogleFonts.poppins(
-                        fontSize: 16,
                         color: const Color.fromARGB(255, 0, 51, 102),
-                        fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(
-                      height: screenSize.height * 0.04,
+                    SizedBox(height: screenSize.height * 0.01),
+                    Text(
+                      "Let's Get You Back In!",
+                      style: GoogleFonts.poppins(
+                          fontSize: screenSize.width * 0.04,
+                          color: const Color.fromARGB(255, 0, 51, 102),
+                          fontWeight: FontWeight.w500),
                     ),
+                    SizedBox(height: screenSize.height * 0.04),
                     TextFormField(
                       style: const TextStyle(color: Colors.black),
                       keyboardType: TextInputType.phone,
@@ -99,12 +99,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ForgotScreen(),
+                            builder: (context) => const LoginScreen(),
                           ),
                         );
                       },
                       child: Text(
-                        "Need Help?",
+                        "Try another one?",
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           color: const Color.fromARGB(255, 0, 51, 102),
@@ -112,9 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: screenSize.height * 0.04,
-                    ),
+                    SizedBox(height: screenSize.height * 0.04),
                     SizedBox(
                       width: double.infinity,
                       height: 60,
@@ -126,20 +124,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Login2Screen(),
-                            ),
-                          );
-                        },
+                        onPressed: () {},
                         child: Text(
-                          "SUBMIT",
+                          "Send Request",
                           style: GoogleFonts.poppins(
                             fontSize: 18,
                             color: Colors.white,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),

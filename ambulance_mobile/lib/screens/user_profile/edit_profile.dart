@@ -1,5 +1,3 @@
-import 'package:ambulance_mobile/widgets/text_holder.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -179,7 +177,7 @@ class _EditProfileState extends State<EditProfile> {
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(20),
                         prefixIcon: const Icon(
-                          Icons.person,
+                          Icons.person_outline,
                         ),
                         labelText: "User Name",
                         labelStyle: GoogleFonts.poppins(
