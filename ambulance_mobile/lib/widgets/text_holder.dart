@@ -19,7 +19,6 @@ class TextHolder extends StatefulWidget {
 class _TextHolderState extends State<TextHolder> {
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -30,11 +29,11 @@ class _TextHolderState extends State<TextHolder> {
               color: const Color.fromARGB(255, 0, 51, 102),
               fontWeight: FontWeight.w500),
         ),
-        SizedBox(
-          height: screenSize.height * 0.005,
+        const SizedBox(
+          height: 8,
         ),
         Container(
-          height: screenSize.height * 0.065,
+          height: 56,
           width: widget.width,
           decoration: BoxDecoration(
             color: Colors.white,

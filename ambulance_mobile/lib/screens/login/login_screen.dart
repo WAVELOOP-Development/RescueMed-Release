@@ -1,4 +1,4 @@
-import 'package:ambulance_mobile/screens/auth/login2_screen.dart';
+import 'package:ambulance_mobile/screens/login/login2_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -26,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Image.asset(
                   "assets/login.png",
+                  height: screenSize.height * 0.4,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,8 +52,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     TextFormField(
                       style: const TextStyle(color: Colors.black),
+                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        labelText: "Enter Your Contact Number",
+                        contentPadding: const EdgeInsets.all(20),
+                        prefixIcon: const Icon(
+                          Icons.phone_android,
+                        ),
+                        labelText: "Contact Number",
                         labelStyle: GoogleFonts.poppins(
                           color: Colors.grey[500],
                           fontSize: 16,
@@ -61,26 +67,26 @@ class _LoginScreenState extends State<LoginScreen> {
                         fillColor: Colors.white,
                         filled: true,
                         border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 0, 51, 102),
-                        width: 1.5,
-                      ),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 0, 51, 102),
-                        width: 1.5,
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 0, 51, 102),
-                        width: 2.0,
-                      ),
-                    ),
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 0, 51, 102),
+                            width: 1.5,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 0, 51, 102),
+                            width: 1.5,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 0, 51, 102),
+                            width: 2.0,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -103,10 +109,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(
                       width: double.infinity,
-                      height: screenSize.height * 0.065,
+                      height: 60,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color.fromARGB(255, 0, 115, 230),
+                          backgroundColor:
+                              const Color.fromARGB(255, 0, 115, 230),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5),
                           ),

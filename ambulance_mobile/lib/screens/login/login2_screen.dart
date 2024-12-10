@@ -16,16 +16,17 @@ class _Login2ScreenState extends State<Login2Screen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        child: SizedBox(
-          height: screenSize.height,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 25),
+          child: SizedBox(
+            height: screenSize.height,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Image.asset(
                   'assets/login2.png',
+                  height: screenSize.height * 0.4,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,7 +92,7 @@ class _Login2ScreenState extends State<Login2Screen> {
                     TextButton(
                       onPressed: () {},
                       child: Text(
-                        "Didn't get the code?",
+                        "Don't have the code?",
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
