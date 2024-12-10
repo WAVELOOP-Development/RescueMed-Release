@@ -97,7 +97,7 @@ class _BaseState extends State<Base> {
             gap: 8,
             tabs: const [
               GButton(
-                icon: CupertinoIcons.house_alt,
+                icon: Icons.home_outlined,
                 iconSize: 30,
                 text: 'Home',
                 textStyle: TextStyle(
@@ -121,7 +121,7 @@ class _BaseState extends State<Base> {
                 ),
               ),
               GButton(
-                icon: CupertinoIcons.person,
+                icon: Icons.person_outline,
                 iconSize: 30,
                 text: 'Profile',
                 textStyle: TextStyle(

@@ -177,7 +177,7 @@ class _EditProfileState extends State<EditProfile> {
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(20),
                         prefixIcon: const Icon(
-                          Icons.person,
+                          Icons.person_outline,
                         ),
                         labelText: "User Name",
                         labelStyle: GoogleFonts.poppins(

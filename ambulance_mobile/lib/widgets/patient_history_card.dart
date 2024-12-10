@@ -53,9 +53,9 @@ class _PatientHistoryCardState extends State<PatientHistoryCard> {
                 child: Row(
                   children: [
                     const Icon(
-                      CupertinoIcons.number,
+                      Icons.tag,
                       color: Color.fromARGB(255, 0, 51, 102),
-                      size: 20,
+                      size: 22,
                     ),
                     const SizedBox(width: 10),
                     Text(
@@ -91,9 +91,9 @@ class _PatientHistoryCardState extends State<PatientHistoryCard> {
                 child: Row(
                   children: [
                     const Icon(
-                      CupertinoIcons.person,
+                      Icons.person_outline,
                       color: Color.fromARGB(255, 0, 51, 102),
-                      size: 20,
+                      size: 22,
                     ),
                     const SizedBox(width: 10),
                     Text(
