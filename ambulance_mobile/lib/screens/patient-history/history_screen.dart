@@ -1,4 +1,4 @@
-import 'package:ambulance_mobile/screens/patient_history/more_information_on_patient_history.dart';
+import 'package:ambulance_mobile/screens/patient-history/more_information_on_patient_history.dart';
 import 'package:ambulance_mobile/widgets/patient_history_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

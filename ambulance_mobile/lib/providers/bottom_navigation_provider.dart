@@ -1,6 +1,6 @@
-import 'package:ambulance_mobile/screens/patient_history/history_screen.dart';
+import 'package:ambulance_mobile/screens/patient-history/history_screen.dart';
 import 'package:ambulance_mobile/screens/home.dart';
-import 'package:ambulance_mobile/screens/user_profile/profile_screen.dart';
+import 'package:ambulance_mobile/screens/user-profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationProvider extends ChangeNotifier {

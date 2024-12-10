@@ -1,4 +1,5 @@
 import 'package:ambulance_mobile/base.dart';
+import 'package:ambulance_mobile/screens/patient-data-form/record_summery.dart';
 import 'package:ambulance_mobile/widgets/emergency_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -120,12 +121,22 @@ class HomeScreen extends StatelessWidget {
               Center(
                 child: Column(
                   children: [
-                    Text(
-                      "Need any help?",
-                      style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: const Color.fromARGB(255, 0, 51, 102),
-                          fontWeight: FontWeight.w500),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RecordSummery(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Need any help?",
+                        style: GoogleFonts.poppins(
+                            fontSize: 16,
+                            color: const Color.fromARGB(255, 0, 51, 102),
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
                     TextButton(
                       onPressed: () {},

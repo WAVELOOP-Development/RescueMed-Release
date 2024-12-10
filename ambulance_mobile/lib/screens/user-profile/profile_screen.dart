@@ -1,5 +1,5 @@
-import 'package:ambulance_mobile/screens/user_profile/edit_profile.dart';
-import 'package:ambulance_mobile/screens/user_profile/help_screen.dart';
+import 'package:ambulance_mobile/screens/user-profile/edit_profile.dart';
+import 'package:ambulance_mobile/screens/user-profile/help_screen.dart';
 import 'package:ambulance_mobile/widgets/text_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
