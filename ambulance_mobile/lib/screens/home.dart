@@ -15,8 +15,8 @@ class HomeScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         title: Image.asset(
-          'assets/logo(full).png',
-          height: 28,
+          'assets/org-logo.png',
+          height: 150,
         ),
         actions: [
           Builder(

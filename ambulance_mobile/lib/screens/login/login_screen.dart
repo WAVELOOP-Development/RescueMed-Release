@@ -1,3 +1,4 @@
+import 'package:ambulance_mobile/screens/login/forgot_screen.dart';
 import 'package:ambulance_mobile/screens/login/login2_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -94,7 +95,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 Column(
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ForgotScreen(),
+                          ),
+                        );
+                      },
                       child: Text(
                         "Need Help?",
                         style: GoogleFonts.poppins(
