@@ -115,23 +115,22 @@ class _ForgotScreenState extends State<ForgotScreen> {
                     SizedBox(height: screenSize.height * 0.04),
                     SizedBox(
                       width: double.infinity,
+                      height: 60,
                       child: ElevatedButton(
-                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
                               const Color.fromARGB(255, 0, 115, 230),
-                          padding: EdgeInsets.symmetric(
-                              vertical: screenSize.height * 0.02),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6),
+                            borderRadius: BorderRadius.circular(5),
                           ),
                         ),
+                        onPressed: () {},
                         child: Text(
                           "Send Request",
                           style: GoogleFonts.poppins(
                             fontSize: 18,
-                            fontWeight: FontWeight.bold,
                             color: Colors.white,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
