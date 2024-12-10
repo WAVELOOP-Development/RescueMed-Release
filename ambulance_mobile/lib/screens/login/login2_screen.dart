@@ -1,5 +1,6 @@
 import 'package:ambulance_mobile/base.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Login2Screen extends StatefulWidget {
@@ -38,7 +39,6 @@ class _Login2ScreenState extends State<Login2Screen> {
                         fontWeight: FontWeight.w500,
                         color: const Color.fromARGB(255, 0, 51, 102),
                       ),
-                      textAlign: TextAlign.start,
                     ),
                     Text(
                       "Provide the five-digit service ID number for verification.",
@@ -51,39 +51,56 @@ class _Login2ScreenState extends State<Login2Screen> {
                     SizedBox(
                       height: screenSize.height * 0.04,
                     ),
+                    // OTP Field
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(5, (index) {
+                      children: List.generate(
+                      5,
+                      (index) {
                         return SizedBox(
-                          width: screenSize.width * 0.15,
-                          height: screenSize.height * 0.068,
-                          child: TextField(
-                            textAlign: TextAlign.center,
-                            keyboardType: TextInputType.number,
-                            maxLength: 1,
-                            style: GoogleFonts.poppins(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            decoration: InputDecoration(
-                              counterText: "",
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 0, 51, 102),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(8),
-                                borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 0, 51, 102),
-                                  width: 2,
-                                ),
-                              ),
+                        width: screenSize.width * 0.15,
+                        height: screenSize.height * 0.068,
+                        child: TextField(
+                          textAlign: TextAlign.center,
+                          keyboardType: TextInputType.number,
+                          maxLength: 1,
+                          style: GoogleFonts.poppins(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          ),
+                          focusNode: FocusNode(
+                          onKey: (node, event) {
+                            if (event.isKeyPressed(LogicalKeyboardKey.backspace) && index > 0) {
+                            FocusScope.of(context).previousFocus();
+                            }
+                            return KeyEventResult.ignored;
+                          },
+                          ),
+                          onChanged: (value) {
+                          if (value.isNotEmpty && index < 4) {
+                            FocusScope.of(context).nextFocus();
+                          }
+                          },
+                          decoration: InputDecoration(
+                          counterText: "",
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 0, 51, 102),
                             ),
                           ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(
+                            color: Color.fromARGB(255, 0, 51, 102),
+                            width: 2,
+                            ),
+                          ),
+                          ),
+                        ),
                         );
-                      }),
+                      },
+                      ),
                     ),
                   ],
                 ),
