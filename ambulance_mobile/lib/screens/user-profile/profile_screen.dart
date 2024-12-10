@@ -1,4 +1,5 @@
 import 'package:ambulance_mobile/screens/user-profile/edit_profile.dart';
+import 'package:ambulance_mobile/screens/user-profile/help_screen.dart';
 import 'package:ambulance_mobile/widgets/text_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -203,7 +204,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => const HelpScreen(),
+                        ),
+                      );
+                    },
                     child: Text(
                       "Help",
                       style: GoogleFonts.poppins(
