@@ -1,4 +1,5 @@
 import 'package:ambulance_mobile/base.dart';
+import 'package:ambulance_mobile/screens/user_profile/help_screen.dart';
 import 'package:ambulance_mobile/widgets/emergency_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -128,7 +129,14 @@ class HomeScreen extends StatelessWidget {
                           fontWeight: FontWeight.w500),
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HelpScreen(),
+                          ),
+                        );
+                      },
                       child: Text(
                         "Contact Administartion",
                         style: GoogleFonts.poppins(
