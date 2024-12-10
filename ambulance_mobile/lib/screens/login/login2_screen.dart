@@ -45,7 +45,7 @@ class _Login2ScreenState extends State<Login2Screen> {
                       style: GoogleFonts.poppins(
                         color: const Color.fromARGB(255, 0, 51, 102),
                         fontSize: 16,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                     SizedBox(
@@ -119,14 +119,14 @@ class _Login2ScreenState extends State<Login2Screen> {
                           backgroundColor:
                               const Color.fromARGB(255, 0, 115, 230),
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(5),
                           ),
                         ),
                         child: Text(
                           "LOGIN",
                           style: GoogleFonts.poppins(
                             fontSize: 18,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w500,
                             color: Colors.white,
                           ),
                         ),
