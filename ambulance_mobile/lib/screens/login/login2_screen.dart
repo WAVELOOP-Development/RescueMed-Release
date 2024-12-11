@@ -70,6 +70,7 @@ class _Login2ScreenState extends State<Login2Screen> {
                           ),
                           focusNode: FocusNode(
                           onKey: (node, event) {
+                            // ignore: deprecated_member_use
                             if (event.isKeyPressed(LogicalKeyboardKey.backspace) && index > 0) {
                             FocusScope.of(context).previousFocus();
                             }

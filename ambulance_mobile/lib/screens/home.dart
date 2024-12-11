@@ -1,6 +1,6 @@
 import 'package:ambulance_mobile/base.dart';
+import 'package:ambulance_mobile/screens/patient-data-form/patient_data_form.dart';
 import 'package:ambulance_mobile/screens/patient-data-form/record_summery.dart';
-import 'package:ambulance_mobile/screens/user_profile/help_screen.dart';
 import 'package:ambulance_mobile/widgets/emergency_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -144,7 +144,7 @@ class HomeScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HelpScreen(),
+                            builder: (context) => PatientDetailsScreen(),
                           ),
                         );
                       },
