@@ -8,7 +8,7 @@ Widget gendeselector(BuildContext context) {
       Row(
         children: [
           Icon(
-            Icons.person,
+            Icons.wc_rounded,
             color: Colors.grey[600],
             size: 25,
           ),
@@ -57,7 +57,11 @@ Widget gendeselector(BuildContext context) {
             Expanded(
               child: ElevatedButton.icon(
                 onPressed: () {},
-                icon: const Icon(Icons.girl, color: Colors.white,size: 30,),
+                icon: const Icon(
+                  Icons.woman,
+                  color: Colors.white,
+                  size: 30,
+                ),
                 label: Text(
                   "FEMALE",
                   style: GoogleFonts.poppins(
@@ -68,7 +72,7 @@ Widget gendeselector(BuildContext context) {
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 0, 115, 230),
-                  padding: const EdgeInsets.symmetric(vertical:10),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
