@@ -37,7 +37,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                       "Need help\nwith signing in?",
                       textAlign: TextAlign.start,
                       style: GoogleFonts.poppins(
-                        fontSize: screenSize.width * 0.06,
+                        fontSize: 32,
                         fontWeight: FontWeight.w500,
                         color: const Color.fromARGB(255, 0, 51, 102),
                       ),
@@ -46,7 +46,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                     Text(
                       "Let's Get You Back In!",
                       style: GoogleFonts.poppins(
-                          fontSize: screenSize.width * 0.04,
+                          fontSize: 16,
                           color: const Color.fromARGB(255, 0, 51, 102),
                           fontWeight: FontWeight.w500),
                     ),

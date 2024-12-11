@@ -1,5 +1,7 @@
+import 'package:ambulance_mobile/screens/patient-data-form/record_summery.dart';
 import 'package:ambulance_mobile/widgets/blood_group_selector.dart';
 import 'package:ambulance_mobile/widgets/gender_selector.dart';
+import 'package:ambulance_mobile/widgets/patient-data-form/alert_dialog_select_hospital.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,10 +15,6 @@ class PatientDetailsScreen extends StatefulWidget {
 class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final width = mediaQuery.size.width;
-    final height = mediaQuery.size.height;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -28,170 +26,257 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
             IconButton(
               onPressed: () => Navigator.pop(context),
               icon: const Icon(Icons.arrow_back_ios),
-              iconSize: width * 0.07,
+              iconSize: 30,
               color: const Color.fromARGB(255, 0, 115, 230),
             ),
             Image.asset(
               'assets/org-logo.png',
-              height:150,
-              
+              height: 150,
             ),
           ],
         ),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+          padding: const EdgeInsets.only(left: 25, right: 25, top: 8),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: height * 0.02),
               Text(
                 'Enter Patient Details',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
-                  fontSize: width * 0.08,
+                  fontSize: 32,
                   color: const Color.fromARGB(255, 0, 51, 102),
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: height * 0.03),
-              Column(
-                children: [
-                  TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.person),
-                      hintText: "Patient Name",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: height * 0.02),
-                  TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.calendar_today),
-                      hintText: "Age",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: height * 0.02),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: bloodgroupselector(context),
-                  ),
-                  SizedBox(height: height * 0.02),
-                  Container(
-                    width: double.infinity,
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: gendeselector(context),
-                  ),
-                  SizedBox(height: height * 0.02),
-                  TextField(
-                    maxLines: 3,
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.description),
-                      suffixIcon: IconButton(
-                        icon: Container(
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 0, 115, 230),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: const Icon(Icons.mic, color: Colors.white),
+              const SizedBox(height: 32),
+              Form(
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.person_outline),
+                        hintText: "Patient Name",
+                        hintStyle: GoogleFonts.poppins(
+                          fontSize: 15,
                         ),
-                        onPressed: () {},
-                      ),
-                      hintText: "Description",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: height * 0.02),
-                  TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: const Icon(Icons.image),
-                      suffixIcon: IconButton(
-                        icon: Container(
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 0, 115, 230),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: const Icon(Icons.add, color: Colors.white),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(0),
                         ),
-                        onPressed: () {},
-                      ),
-                      hintText: "Add Emergency Image",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                  ),
-                  SizedBox(height: height * 0.04),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
+                    const SizedBox(height: 10),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(
+                          Icons.calendar_today_outlined,
+                          size: 20,
+                        ),
+                        hintText: "Age",
+                        hintStyle: GoogleFonts.poppins(
+                          fontSize: 15,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Container(
                       width: double.infinity,
-                      height: height * 0.06,
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: const Color.fromARGB(255, 0, 115, 230),
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(0),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.qr_code_scanner_sharp,
-                              color: Colors.white),
-                          SizedBox(width: width * 0.03),
-                          Text(
-                            "Scan NIC or Driving License",
-                            style: GoogleFonts.poppins(
-                              fontSize: width * 0.040,
-                              color: Colors.white,
+                      child: bloodgroupselector(context),
+                    ),
+                    const SizedBox(height: 10),
+                    Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(0),
+                      ),
+                      child: gendeselector(context),
+                    ),
+                    const SizedBox(height: 10),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.description_outlined,
+                          color: Colors.grey[600],
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 0, 115, 230),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: const Icon(Icons.mic, color: Colors.white),
+                          ),
+                          onPressed: () {},
+                        ),
+                        hintText: "Description",
+                        hintStyle: GoogleFonts.poppins(
+                          fontSize: 15,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.add_a_photo_outlined,
+                          color: Colors.grey[600],
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 0, 115, 230),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: const Icon(Icons.add, color: Colors.white),
+                          ),
+                          onPressed: () {},
+                        ),
+                        hintText: "Add Emergency Image",
+                        hintStyle: GoogleFonts.poppins(
+                          fontSize: 15,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(0),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 45),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 60,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(0),
+                            side: const BorderSide(
+                              color: Color.fromARGB(255, 0, 51, 102),
                             ),
                           ),
-                        ],
+                        ),
+                        onPressed: () {},
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.qr_code_scanner_sharp,
+                              color: Color.fromARGB(255, 0, 51, 102),
+                              size: 25,
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              "Scan NIC or Driving License",
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                color: const Color.fromARGB(255, 0, 51, 102),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: height * 0.02),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
+                    const SizedBox(height: 16),
+                    SizedBox(
                       width: double.infinity,
-                      height: height * 0.06,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: const Color.fromARGB(255, 0, 115, 230),
-                      ),
-                      child: Center(
+                      height: 60,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 0, 115, 230),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                        onPressed: () {
+                          //Select Hospital - Dialog box
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                backgroundColor: Colors.white,
+                                shape: BeveledRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                title: Text(
+                                  'Select Hospital',
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 32,
+                                      color:
+                                          const Color.fromARGB(255, 0, 51, 102),
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                content: const AlertDialogSelectHospital(),
+                                actions: [
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 60,
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: const Color.fromARGB(
+                                            255, 0, 115, 230),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (ctx) =>
+                                                const RecordSummery(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        "Submit",
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                        },
                         child: Text(
                           "Next",
                           style: GoogleFonts.poppins(
-                            fontSize: width * 0.045,
+                            fontSize: 16,
                             color: Colors.white,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                     const SizedBox(height: 16),
+                  ],
+                ),
               ),
+             
             ],
           ),
         ),

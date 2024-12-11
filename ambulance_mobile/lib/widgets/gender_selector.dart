@@ -2,26 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 Widget gendeselector(BuildContext context) {
-  final screenWidth = MediaQuery.of(context).size.width;
-
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Row(
         children: [
-          const Icon(Icons.person, color: Colors.black),
+          Icon(
+            Icons.person,
+            color: Colors.grey[600],
+            size: 25,
+          ),
           const SizedBox(width: 8),
           Text(
             "Gender",
             style: GoogleFonts.poppins(
-              fontSize: 14,
+              fontSize: 15,
               fontWeight: FontWeight.w500,
-              color: Colors.black,
+              color: Colors.grey[600],
             ),
           ),
         ],
       ),
-      const SizedBox(height: 12),
+      const SizedBox(height: 16),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Row(
@@ -29,20 +31,24 @@ Widget gendeselector(BuildContext context) {
             Expanded(
               child: ElevatedButton.icon(
                 onPressed: () {},
-                icon: const Icon(Icons.man, color: Colors.white),
+                icon: const Icon(
+                  Icons.man,
+                  color: Colors.white,
+                  size: 30,
+                ),
                 label: Text(
                   "MALE",
                   style: GoogleFonts.poppins(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 0, 115, 230),
-                  padding: EdgeInsets.symmetric(vertical: screenWidth * 0.03),
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                 ),
               ),
@@ -51,20 +57,20 @@ Widget gendeselector(BuildContext context) {
             Expanded(
               child: ElevatedButton.icon(
                 onPressed: () {},
-                icon: const Icon(Icons.girl, color: Colors.white),
+                icon: const Icon(Icons.girl, color: Colors.white,size: 30,),
                 label: Text(
                   "FEMALE",
                   style: GoogleFonts.poppins(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 0, 115, 230),
-                  padding: EdgeInsets.symmetric(vertical: screenWidth * 0.03),
+                  padding: const EdgeInsets.symmetric(vertical:10),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                 ),
               ),

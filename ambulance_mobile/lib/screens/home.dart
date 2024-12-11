@@ -1,6 +1,6 @@
 import 'package:ambulance_mobile/base.dart';
 import 'package:ambulance_mobile/screens/patient-data-form/patient_data_form.dart';
-import 'package:ambulance_mobile/screens/patient-data-form/record_summery.dart';
+import 'package:ambulance_mobile/screens/user-profile/help_screen.dart';
 import 'package:ambulance_mobile/widgets/emergency_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -86,15 +86,31 @@ class HomeScreen extends StatelessWidget {
                           title: 'CARDIAC',
                           image: 'assets/cardiac.png',
                           onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const PatientDetailsScreen(),
+                              ),
+                            );
+
                             print("cardiact");
                           },
                         ),
                         EmergencyButton(
-                            title: 'ACCIDENT',
-                            image: 'assets/accident.png',
-                            onTap: () {
-                              print("accident");
-                            }),
+                          title: 'ACCIDENT',
+                          image: 'assets/accident.png',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const PatientDetailsScreen(),
+                              ),
+                            );
+                            print("accident");
+                          },
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -104,13 +120,33 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         EmergencyButton(
-                            title: 'POISONED',
-                            image: 'assets/poison.png',
-                            onTap: () {}),
+                          title: 'POISONED',
+                          image: 'assets/poison.png',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const PatientDetailsScreen(),
+                              ),
+                            );
+                            print("poisoned");
+                          },
+                        ),
                         EmergencyButton(
-                            title: 'OTHER',
-                            image: 'assets/other.png',
-                            onTap: () {}),
+                          title: 'OTHER',
+                          image: 'assets/other.png',
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const PatientDetailsScreen(),
+                              ),
+                            );
+                            print("other");
+                          },
+                        ),
                       ],
                     ),
                   ],
@@ -122,29 +158,19 @@ class HomeScreen extends StatelessWidget {
               Center(
                 child: Column(
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const RecordSummery(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Need any help?",
-                        style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            color: const Color.fromARGB(255, 0, 51, 102),
-                            fontWeight: FontWeight.w500),
-                      ),
+                    Text(
+                      "Need any help?",
+                      style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: const Color.fromARGB(255, 0, 51, 102),
+                          fontWeight: FontWeight.w500),
                     ),
                     TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PatientDetailsScreen(),
+                            builder: (context) => const HelpScreen(),
                           ),
                         );
                       },
