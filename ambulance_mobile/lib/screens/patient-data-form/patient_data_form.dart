@@ -167,9 +167,10 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0),
-                            side: const BorderSide(
+                            borderRadius: BorderRadius.circular(5),
+                            side:  const BorderSide(
                               color: Color.fromARGB(255, 0, 51, 102),
+                              width: 2,
                             ),
                           ),
                         ),
