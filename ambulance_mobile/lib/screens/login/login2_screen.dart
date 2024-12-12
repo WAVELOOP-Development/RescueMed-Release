@@ -11,6 +11,40 @@ class Login2Screen extends StatefulWidget {
 }
 
 class _Login2ScreenState extends State<Login2Screen> {
+  final List<TextEditingController> controllers = List.generate(
+    5,
+    (index) => TextEditingController(),
+  );
+  final List<FocusNode> focusNodes = List.generate(
+    5,
+    (index) => FocusNode(),
+  );
+
+  @override
+  void dispose() {
+    for (var controller in controllers) {
+      controller.dispose();
+    }
+    for (var node in focusNodes) {
+      node.dispose();
+    }
+    super.dispose();
+  }
+
+  bool validateServiceId() {
+    String fullCode = controllers.map((e) => e.text).join();
+    return fullCode.length == 5 && int.tryParse(fullCode) != null;
+  }
+
+  void fieldFocusChange(int index, String value) {
+    if (value.length == 1 && index < 4) {
+      focusNodes[index + 1].requestFocus();
+    }
+    if (value.isEmpty && index > 0) {
+      focusNodes[index - 1].requestFocus();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -51,87 +85,76 @@ class _Login2ScreenState extends State<Login2Screen> {
                     SizedBox(
                       height: screenSize.height * 0.04,
                     ),
-                    // OTP Field
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: List.generate(
-                      5,
-                      (index) {
-                        return SizedBox(
-                        width: screenSize.width * 0.15,
-                        height: screenSize.height * 0.068,
-                        child: TextField(
-                          textAlign: TextAlign.center,
-                          keyboardType: TextInputType.number,
-                          maxLength: 1,
-                          style: GoogleFonts.poppins(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          ),
-                          focusNode: FocusNode(
-                          onKey: (node, event) {
-                            // ignore: deprecated_member_use
-                            if (event.isKeyPressed(LogicalKeyboardKey.backspace) && index > 0) {
-                            FocusScope.of(context).previousFocus();
-                            }
-                            return KeyEventResult.ignored;
-                          },
-                          ),
-                          onChanged: (value) {
-                          if (value.isNotEmpty && index < 4) {
-                            FocusScope.of(context).nextFocus();
-                          }
-                          },
-                          decoration: InputDecoration(
-                          counterText: "",
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 0, 51, 102),
+                        5,
+                        (index) => SizedBox(
+                          width: screenSize.width * 0.15,
+                          height: screenSize.height * 0.068,
+                          child: TextField(
+                            controller: controllers[index],
+                            focusNode: focusNodes[index],
+                            keyboardType: TextInputType.number,
+                            textAlign: TextAlign.center,
+                            maxLength: 1,
+                            onChanged: (value) =>
+                                fieldFocusChange(index, value),
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                              LengthLimitingTextInputFormatter(1),
+                            ],
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
                             ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
-                            color: Color.fromARGB(255, 0, 51, 102),
-                            width: 2,
+                            decoration: InputDecoration(
+                              counterText: "",
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 0, 51, 102),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 0, 51, 102),
+                                  width: 2,
+                                ),
+                              ),
                             ),
-                          ),
                           ),
                         ),
-                        );
-                      },
                       ),
                     ),
                   ],
                 ),
                 Column(
                   children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Don't have the code?",
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: const Color.fromARGB(255, 0, 51, 102),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: screenSize.height * 0.04,
-                    ),
                     SizedBox(
                       width: double.infinity,
                       height: screenSize.height * 0.065,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Base(),
-                            ),
-                          );
+                          if (validateServiceId()) {
+                            String serviceId =
+                                controllers.map((e) => e.text).join();
+                            print('Service ID: $serviceId');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Base(),
+                              ),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content:
+                                    Text('Please enter a valid 5-digit ID'),
+                              ),
+                            );
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
@@ -147,6 +170,17 @@ class _Login2ScreenState extends State<Login2Screen> {
                             fontWeight: FontWeight.w500,
                             color: Colors.white,
                           ),
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Don't have the code?",
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: const Color.fromARGB(255, 0, 51, 102),
                         ),
                       ),
                     ),

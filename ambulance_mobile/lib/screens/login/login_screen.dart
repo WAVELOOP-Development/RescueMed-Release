@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: const TextStyle(color: Colors.black),
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
-                        contentPadding: const EdgeInsets.all(20),
+                        contentPadding: const EdgeInsets.all(16),
                         prefixIcon: const Icon(
                           Icons.phone_android,
                         ),
@@ -94,27 +94,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Column(
                   children: [
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const ForgotScreen(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Need Help?",
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          color: const Color.fromARGB(255, 0, 51, 102),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: screenSize.height * 0.04,
-                    ),
                     SizedBox(
                       width: double.infinity,
                       height: 60,
@@ -141,6 +120,24 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
                           ),
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ForgotScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        "Need Help?",
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          color: const Color.fromARGB(255, 0, 51, 102),
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),

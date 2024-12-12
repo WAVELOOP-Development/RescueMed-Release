@@ -1,9 +1,8 @@
-import 'package:ambulance_mobile/screens/patient-data-form/record_summery.dart';
 import 'package:ambulance_mobile/widgets/blood_group_selector.dart';
 import 'package:ambulance_mobile/widgets/gender_selector.dart';
-import 'package:ambulance_mobile/widgets/patient-data-form/alert_dialog_select_hospital.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ambulance_mobile/widgets/patient-data-form/hospital_selection_dialog.dart';
 
 class PatientDetailsScreen extends StatefulWidget {
   const PatientDetailsScreen({super.key});
@@ -58,9 +57,11 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                     TextFormField(
                       decoration: InputDecoration(
                         prefixIcon: const Icon(Icons.person_outline),
-                        hintText: "Patient Name",
-                        hintStyle: GoogleFonts.poppins(
-                          fontSize: 15,
+                        labelText: "Patient Name",
+                        labelStyle: GoogleFonts.poppins(
+                          color: Colors.grey[500],
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(0),
@@ -74,9 +75,11 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                           Icons.calendar_today_outlined,
                           size: 20,
                         ),
-                        hintText: "Age",
-                        hintStyle: GoogleFonts.poppins(
-                          fontSize: 15,
+                        labelText: "Patient Age",
+                        labelStyle: GoogleFonts.poppins(
+                          color: Colors.grey[500],
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(0),
@@ -91,7 +94,7 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(0),
                       ),
-                      child: bloodgroupselector(context),
+                      child: const BloodGroupSelector(),
                     ),
                     const SizedBox(height: 10),
                     Container(
@@ -101,7 +104,7 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(0),
                       ),
-                      child: gendeselector(context),
+                      child: const GenderSelector(),
                     ),
                     const SizedBox(height: 10),
                     TextFormField(
@@ -168,7 +171,7 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5),
-                            side:  const BorderSide(
+                            side: const BorderSide(
                               color: Color.fromARGB(255, 0, 51, 102),
                               width: 2,
                             ),
@@ -209,57 +212,10 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                           ),
                         ),
                         onPressed: () {
-                          //Select Hospital - Dialog box
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
-                              return AlertDialog(
-                                backgroundColor: Colors.white,
-                                shape: BeveledRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                title: Text(
-                                  'Select Hospital',
-                                  style: GoogleFonts.poppins(
-                                      fontSize: 32,
-                                      color:
-                                          const Color.fromARGB(255, 0, 51, 102),
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                content: const AlertDialogSelectHospital(),
-                                actions: [
-                                  SizedBox(
-                                    width: double.infinity,
-                                    height: 60,
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: const Color.fromARGB(
-                                            255, 0, 115, 230),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                      ),
-                                      onPressed: () {
-                                        Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                            builder: (ctx) =>
-                                                const RecordSummery(),
-                                          ),
-                                        );
-                                      },
-                                      child: Text(
-                                        "Submit",
-                                        style: GoogleFonts.poppins(
-                                          fontSize: 16,
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              );
+                              return const HospitalSelectionDialog();
                             },
                           );
                         },
@@ -273,11 +229,10 @@ class _PatientDetailsScreenState extends State<PatientDetailsScreen> {
                         ),
                       ),
                     ),
-                     const SizedBox(height: 16),
+                    const SizedBox(height: 16),
                   ],
                 ),
               ),
-             
             ],
           ),
         ),

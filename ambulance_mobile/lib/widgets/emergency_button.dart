@@ -5,12 +5,12 @@ class EmergencyButton extends StatefulWidget {
   const EmergencyButton({
     super.key,
     required this.title,
-    required this.image,
+    required this.icon,
     required this.onTap,
   });
 
   final String title;
-  final String image;
+  final IconData icon;
   final VoidCallback onTap;
 
   @override
@@ -41,8 +41,10 @@ class _EmergencyButtonState extends State<EmergencyButton> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              widget.image,
+            Icon(
+              widget.icon,
+              size: screenSize.width * 0.12,
+              color: Colors.white,
             ),
             const SizedBox(height: 10),
             Text(

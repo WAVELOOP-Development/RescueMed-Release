@@ -17,12 +17,14 @@ class Base extends StatefulWidget {
 class _BaseState extends State<Base> {
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
     return Scaffold(
       key: Base.scaffoldKey,
       body: context.watch<BottomNavigationProvider>().currentScreen,
       endDrawer: SafeArea(
         child: Drawer(
           backgroundColor: Colors.white,
+          width: screenSize.width * 0.7,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
             child: Stack(
@@ -49,8 +51,8 @@ class _BaseState extends State<Base> {
                 ),
                 Positioned(
                   top: 0,
-                  left: 0,
-                  right: 0,
+                  left: 20,
+                  right: 20,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

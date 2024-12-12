@@ -12,7 +12,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  void showQRCode() {
+  void showQRCode(double screenWidth) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -39,7 +39,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              const Image(image: AssetImage('assets/testQR.png')),
+              Image(
+                image: const AssetImage(
+                  'assets/testQR.png',
+                ),
+                width: screenWidth * 0.5,
+              ),
             ],
           ),
           actions: [
@@ -110,7 +115,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ],
                     ),
                     IconButton(
-                      onPressed: showQRCode,
+                      onPressed: () {
+                        showQRCode(screenSize.width);
+                      },
                       icon: const Icon(
                         Icons.qr_code_rounded,
                         size: 56,

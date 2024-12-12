@@ -22,15 +22,18 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           Builder(
-            builder: (context) => IconButton(
-              icon: const Icon(
-                Icons.notifications_active_outlined,
-                size: 30,
-                color: Color.fromARGB(255, 0, 51, 102),
+            builder: (context) => Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: IconButton(
+                icon: const Icon(
+                  Icons.notifications_active_outlined,
+                  size: 30,
+                  color: Color.fromARGB(255, 0, 51, 102),
+                ),
+                onPressed: () {
+                  Base.scaffoldKey.currentState?.openEndDrawer();
+                },
               ),
-              onPressed: () {
-                Base.scaffoldKey.currentState?.openEndDrawer();
-              },
             ),
           ),
         ],
@@ -38,53 +41,58 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Good Morning!",
-                style: GoogleFonts.poppins(
-                    fontSize: 32,
-                    color: const Color.fromARGB(255, 0, 51, 102),
-                    fontWeight: FontWeight.w500),
-              ),
-              Text(
-                "Kasun",
-                style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    color: const Color.fromARGB(255, 0, 51, 102),
-                    fontWeight: FontWeight.w500),
-              ),
-              SizedBox(
-                height: screenSize.height * 0.05,
-              ),
-              Text(
-                "Hey, Welcome Back!",
-                style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    color: const Color.fromARGB(255, 0, 51, 102),
-                    fontWeight: FontWeight.w500),
-              ),
-              Text(
-                "What's Going On?",
-                style: GoogleFonts.poppins(
-                    fontSize: 32,
-                    color: const Color.fromARGB(255, 0, 51, 102),
-                    fontWeight: FontWeight.w500),
-              ),
-              SizedBox(
-                height: screenSize.height * 0.025,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                child: Column(
+          child: SizedBox(
+            height: screenSize.height - 200,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Good Morning!",
+                      style: GoogleFonts.poppins(
+                          fontSize: 32,
+                          color: const Color.fromARGB(255, 0, 51, 102),
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      "Kasun",
+                      style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: const Color.fromARGB(255, 0, 51, 102),
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Hey, Welcome Back!",
+                      style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: const Color.fromARGB(255, 0, 51, 102),
+                          fontWeight: FontWeight.w500),
+                    ),
+                    Text(
+                      "What's Going On?",
+                      style: GoogleFonts.poppins(
+                          fontSize: 32,
+                          color: const Color.fromARGB(255, 0, 51, 102),
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+                Column(
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         EmergencyButton(
                           title: 'CARDIAC',
-                          image: 'assets/cardiac.png',
+                          icon: Icons.monitor_heart_outlined,
                           onTap: () {
                             Navigator.push(
                               context,
@@ -99,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         EmergencyButton(
                           title: 'ACCIDENT',
-                          image: 'assets/accident.png',
+                          icon: Icons.personal_injury_outlined,
                           onTap: () {
                             Navigator.push(
                               context,
@@ -114,14 +122,14 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: screenSize.height * 0.035,
+                      height: screenSize.height * 0.04,
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         EmergencyButton(
                           title: 'POISONED',
-                          image: 'assets/poison.png',
+                          icon: Icons.vaccines_outlined,
                           onTap: () {
                             Navigator.push(
                               context,
@@ -135,7 +143,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                         EmergencyButton(
                           title: 'OTHER',
-                          image: 'assets/other.png',
+                          icon: Icons.pending_outlined,
                           onTap: () {
                             Navigator.push(
                               context,
@@ -151,41 +159,38 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-              SizedBox(
-                height: screenSize.height * 0.055,
-              ),
-              Center(
-                child: Column(
-                  children: [
-                    Text(
-                      "Need any help?",
-                      style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: const Color.fromARGB(255, 0, 51, 102),
-                          fontWeight: FontWeight.w500),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const HelpScreen(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Contact Administartion",
+                Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Need any help?",
                         style: GoogleFonts.poppins(
                             fontSize: 16,
                             color: const Color.fromARGB(255, 0, 51, 102),
-                            fontWeight: FontWeight.w700),
+                            fontWeight: FontWeight.w500),
                       ),
-                    ),
-                  ],
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HelpScreen(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Contact Administartion",
+                          style: GoogleFonts.poppins(
+                              fontSize: 16,
+                              color: const Color.fromARGB(255, 0, 51, 102),
+                              fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
